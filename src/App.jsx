@@ -5,17 +5,17 @@ const SetupWizard = () => {
 
   // Persist data for each step so back doesn't delete input data
   const [formData, setFormData] = useState({
-    department:{ title: '', acronym: '' },
-    category: { title: '', description: ''},
-    service: { title: '', code: ''},
-    sampleType: { title: '', unit: ''},
-    client: { name:'', email:''},
-    contact: {name: '', role: ''}
+    department:{ title: '', description: ''},
+    category: { title: '', description: '', department: ''},
+    service: { title: '', unit: '', keyword: '', poc: '', category: '', department: ''},
+    sampleType: { title: '', prefix: '', volume: ''},
+    client: { name:'', id:''},
+    contact: {name: '', email: ''}
   });
 
   const steps = [
     {id: 1, title: 'Lab Department', description: 'Top-level organizational container for laboratory activities' },
-    {id: 2, title: 'Analysis Category', description: 'Classification groups for analysis services' },
+    {id: 2, title: 'Analysis Category', description: 'Classification groups for analysis service' },
     {id: 3, title: 'Analysis Services', description: 'Laboratory Tests and their technical specifications' },
     {id: 4, title: 'Sample Type', description: 'Material definitions and physical specimen characteristics' },
     {id: 5, title: 'Client', description: 'Entities requesting laboratory services and billing information' },
