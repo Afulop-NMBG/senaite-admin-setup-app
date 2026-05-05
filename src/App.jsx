@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StepRenderer from './components/StepRenderer';
 
 const SetupWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -73,19 +74,13 @@ const SetupWizard = () => {
 
           {/* Form container */}
           <div className="p-10">
-            <div key={currentStep} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="text-[10px] font-mono text-blue-500 mb-1 tracking-widest uppercase">
-                Object Type {currentStep}
-              </div>
-              <h2 className="text-2xl font-bold mb-2 uppercase tracking-tight">{currentStepData.title}</h2>
-              <p className="text-slate-500 mb-8 text-sm">{currentStepData.description}</p>
-
-              {/* Placeholder for fields */}
-              <div className="h-64 border-2 border-dashed border-gray-100 rounded-xl flex flex-col items-center text-gray-400 bg-gray-50/50">
-                <span className="text-xs font-mono mb-2">[ {currentStepData.title.toUpperCase()}_FIELDS ]</span>
-                <p className="text-[10px]">Ready for input components</p>
-              </div>
-            </div>
+            <h2 className="text-2xl font-bold mb-2 uppercase tracking-tight">{currentStepData.title}</h2>
+            <p className="text-slate-500 mb-8 text-sm">{currentStepData.description}</p>             
+              <StepRenderer
+                currentStep={currentStep}
+                formData={formData}
+                setFormData={setFormData}
+              />
 
             {/* Nav buttons */}
             <div className="flex justify-between mt-12 pt-8 border-t border-gray-100">
@@ -109,8 +104,7 @@ const SetupWizard = () => {
               {currentStep === steps.length ? 'Complete Setup' : 'Continue'}
             </button>
             </div>
-          </div>
-
+            </div>
           </div>
         </main>
        </div>

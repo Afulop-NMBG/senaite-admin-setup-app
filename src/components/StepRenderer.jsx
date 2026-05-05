@@ -13,6 +13,7 @@ export const StepRenderer = ({ currentStep, formData, setFormData}) => {
 
   return (
     <div className="min-h-[300px]">
+    {/* These fields will need updating if/for api hookup */}
         {/* Department */}
         {currentStep === 1 && (
             <div className="animate-in fade-in duration-300">
@@ -63,3 +64,6 @@ export const StepRenderer = ({ currentStep, formData, setFormData}) => {
     </div>
   )
 }
+
+
+export default StepRenderer;
